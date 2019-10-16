@@ -16,7 +16,7 @@ public class StudentTest {
 		try {
 			Student s = new Student();
 
-			Integer rating = s.getRating();
+			Integer rating = s.getRating(); 
 			Integer expected = INITIAL_RATING;
 
 			assertEquals(expected, rating);
@@ -27,40 +27,17 @@ public class StudentTest {
 
 	@Test
 	public void testCompareTo() throws NameException {
-		Student firstStudent = new Student("x", "Y", 2);
-		Student secondStudent = new Student("x", "Y", 3);
+		Student firstStudent = new Student("A", "B", 2);
+		Student secondStudent = new Student("A", "C", 3);
+		Student student = new Student("A", "A", 5);
+		Student empty = new Student("Z", "", 3);
+		Student secondEmpty = new Student("x", "", 3);
 		
-		int actual = secondStudent.compareTo(firstStudent);
-		// should be bigger than 0
-		boolean result = false;
-		if (actual > 0 ) {
-			result = true;
-		}
+		CompareLastFirstName clfn = new CompareLastFirstName();
 		
-		assertTrue(result);
-		
-		//should be less than 0
-		Student student = new Student("x", "y", 5);
-		result = false; //reset to false
-	
-		actual = secondStudent.compareTo(student);
-		if( actual < 0) {
-			result = true;
-		}
-		assertTrue(result);
-		//should be same, should be 0
-		result = false; // reset to false
-		
-		Student studentSame = new Student("x", "y", 5);
-		actual = student.compareTo(studentSame);
-		int expected = 0;
-		assertEquals(expected, actual);
-
+		clfn.compare(firstStudent, secondStudent);
 		
 		
-		
-
-
 	}
 	
 	@Test
