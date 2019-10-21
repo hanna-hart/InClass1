@@ -42,14 +42,16 @@ public class Driver {
 			students.add(s3);
 			students.add((Student) bo);
 			
-			Map<String, Student> m = new HashMap<String, Student>();
-			Map<String, Student> t = new TreeMap<String, Student>();
+			//use "Map" in beginning and specify after "="
+			Map<String, Student> m = new HashMap<String, Student>(); //specified to HashMap
+			Map<String, Student> t = new TreeMap<String, Student>(); //specified to TreeMap
 			
 			Integer index = 0;
 			Integer counter = 0;
 			for(Student s : students) {
-				m.put("s1" + index++, s);
-				t.put("s1" + counter++, s);
+				m.put("s1" + index++, s); //this will not be sorted because its HashMap
+				t.put("s1" + counter++, s); //this will be sorted 
+				m.put("s1" + index++, s); //this will not be sorted because its TreeMap
 				System.out.println(s);
 			}
 			
